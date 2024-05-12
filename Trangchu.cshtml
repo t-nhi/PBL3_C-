@@ -1,0 +1,164 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+@model List<WebsiteQLHDTN.ViewModels.thongtinHoatdong>
+@{
+    var scheme = Context.Request.Scheme;
+    var host = Context.Request.Host;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Trang chủ</title>
+    <base href="http://127.0.0.1:5500/">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Baloo:wght@400&display=swap" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter Da 2:wght@400&display=swap" />
+</head>
+<body>
+    <div class="container ">
+        <div class="retangle1"></div>
+        <div class="KTTNV">Kết nối tình nguyện viên</div>
+    </div>
+    <div class="frame">
+        @foreach (var item in Model)
+        {
+            <div class="hd-item">
+                <div class="hd-img">
+                    <img src="https://cdn.pixabay.com/photo/2022/12/25/09/52/winter-forest-7677111_1280.jpg" class="img" alt="">
+                </div>
+                <div class="thongtinhd">
+                    <h4 class="tenhd">@item.Tenhoatdong1</h4>
+                    <p class="mota">@item.MuctieuHd1</p>
+                    <div class="hienthi">
+                        <a href="@($"{scheme}://{host}/Home/chitiet/{item.Idhoatdong1}")" class="hienthichitiet">Chi tiết</a>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+    
+
+</body>
+</html>
+<style>
+    .hd-item {
+        display: block;
+        box-sizing:border-box;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        overflow: hidden;
+        height: 455px;
+        width: 336px;
+    }
+
+    .hd-img { 
+        width: 336px;
+        height: 270px;
+    }
+
+        .hd-img img {
+            width: 100%;
+            height: 269px;
+            display: block;
+        }
+
+    .thongtinhd {
+        text-align: center;
+        padding: 15px;
+        display: block;
+        height: 230px;
+        width:336px;
+
+    }
+
+    .tenhd {
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .mota {
+        font-size: 14px;
+        margin-top: 0;
+        margin-bottom: 3px;
+        width: 336px;
+        height:90px;
+        text-align:center;
+    }
+
+    .hienthi {
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+        height: 80px;
+    }
+
+    .linhvuc {
+        font-weight: 700px;
+        width: 150px;
+    }
+
+    .hienthichitiet {
+        box-sizing: border-box;
+        border: 1px black;
+        cursor: pointer;
+        text-decoration: none;
+        padding-top:5px;
+        font-size: 16px;
+        width: 110px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+        .hienthichitiet:hover {
+            background-color: lightblue;
+
+        }
+
+    .frame{
+        top: 600px;
+        position: relative;
+        margin: 0 136px 69px 136px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        justify-content: center;
+        align-self: flex-start;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1200px;
+        box-sizing: border-box;
+        border: 1px black;
+    }
+    .container {
+        max-width: 1440px;
+        height: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative; /* Cần thiết để sử dụng position absolute cho các phần tử con */
+    }
+    .retangle1 {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 1440px;
+        height: 680px;
+        background: linear-gradient(180deg, rgba(77, 227, 119, 0.36), #fff);
+    }
+
+    .KTTNV {
+        position: absolute;
+        left: 248px;
+        top: 331px;
+        width: 945px;
+        height: 129px;
+        font-size: 90px;
+        font-family: Baloo;
+    }
+</style>
